@@ -13,9 +13,9 @@
   box-sizing: border-box;
 }
 
-:focus,
-:active {
-  outline: none;
+:focus {
+  outline: 2px solid #ff7b47;
+  outline-offset: 2px;
 }
 
 a:focus,
@@ -34,8 +34,7 @@ html,
 body {
   height: 100%;
   width: 100%;
-  font-size: 100%;
-  line-height: 1;
+  line-height: 1.4;
   font-size: 14px;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
@@ -82,16 +81,6 @@ img {
   vertical-align: top;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: 400;
-}
-
 /*  */
 
 .wrapper {
@@ -101,11 +90,10 @@ h6 {
   flex-direction: column;
 }
 
-.container {
+._container {
   max-width: 1046px;
   margin: 0 auto;
   padding: 0 15px;
-  box-sizing: content-box;
 }
 
 .ibg {
@@ -198,17 +186,17 @@ h6 {
 
   .header__container {
     justify-content: space-between;
+    padding: 20px 20px;
   }
 }
 
 /* Mobile menu */
-.menu {
-  display: none;
-}
 
 .menu .link {
-  padding: 10px;
-  color: inherit;
+  display: block;
+  padding: 20px;
+  font-weight: 600;
+  color: #737373;
   text-decoration: none;
 }
 
@@ -217,6 +205,7 @@ h6 {
   text-decoration: underline;
 }
 
+/* Кнопка бургер */
 .menu-toggle {
   min-height: 40px;
   min-width: 40px;
@@ -224,13 +213,10 @@ h6 {
   align-items: center;
   justify-content: center;
 
-  margin: 0;
-  padding: 0;
   background-color: transparent;
-  cursor: pointer;
   border: none;
   border-radius: 50%;
-  outline: none;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -239,48 +225,38 @@ h6 {
   }
 }
 
-.menu-toggle:hover,
-.menu-toggle:focus {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
+/* Контейнер меню */
 .menu-container {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   padding: 32px;
   background-color: #fafafa;
   z-index: 999;
 
   transform: translateX(100%);
-  transition: transform 250ms ease-in-out;
+  transition: transform 0.3s ease;
 }
 
+/* Коли відкрито */
 .menu-container.is-open {
   transform: translateX(0);
 }
 
+/* Кнопка закриття */
 .menu-container .menu-toggle {
   position: absolute;
   top: 16px;
   right: 16px;
-  color: #fff;
 }
 
-.mobile-menu {
-  padding: 0;
-  margin: 0;
+/* Список */
+.menu--mobile {
   list-style: none;
-}
-
-.mobile-menu .link {
-  display: block;
-  padding: 20px;
-  font-weight: 600;
-  color: #737373;
-  text-decoration: none;
+  padding: 0;
+  margin-top: 60px;
 }
 
 /* Main Section */
@@ -294,7 +270,7 @@ h6 {
 
 .main-block__body {
   max-width: 400px;
-  padding: 184px 0 191px 0;
+  padding: 185px 0 190px 0;
   position: relative;
   z-index: 2;
 }
@@ -333,7 +309,7 @@ h6 {
   padding: 10px 36px;
   min-height: 48px;
   border-radius: 37px;
-  transition: all 0.3s ease 0s;
+  transition: background-color 0.3s ease;
 }
 
 .main-block__button:not(:last-child) {
@@ -368,18 +344,6 @@ h6 {
   left: 0;
 }
 
-@media only screen and (min-width: 1920px) and (max-width: 2559px) {
-}
-
-@media only screen and (min-width: 1301px) and (max-width: 1919px) {
-}
-
-@media only screen and (min-width: 1024px) and (max-width: 1300px) {
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-}
-
 @media only screen and (max-width: 1300px) {
   .main-block__image img {
     object-position: right;
@@ -394,15 +358,6 @@ h6 {
   .main-block__image {
     opacity: 0.5;
   }
-}
-
-@media only screen and (max-width: 767px) {
-}
-
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-}
-
-@media only screen and (max-width: 479px) {
 }
 
 /* Services Section */
@@ -435,12 +390,12 @@ h6 {
   margin: 0px 0px 10px 0px;
 }
 
-.item-service__green {
+.item-service--green {
   background-color: #0d5c63;
 }
 
-.item-service__green .item-service__title,
-.item-service__green .item-service__text {
+.item-service--green .item-service__title,
+.item-service--green .item-service__text {
   color: #ffffff;
 }
 
@@ -541,7 +496,7 @@ h6 {
   justify-content: space-between;
 }
 
-.item-practes__content {
+.item-practice__content {
   padding: 30px;
 }
 
@@ -588,7 +543,7 @@ h6 {
 
 .about__body {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .about__video {
@@ -647,12 +602,12 @@ h6 {
   flex: 0 0 32px;
 }
 
-.icon-about__body {
+.item-about__body {
   flex: 1 1 auto;
   padding: 0 0 0 20px;
 }
 
-.icon-about__title {
+.item-about__title {
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
@@ -660,19 +615,18 @@ h6 {
   color: #252b42;
 }
 
-.icon-about__title:not(:last-child) {
+.item-about__title:not(:last-child) {
   margin: 0 0 5px 0;
 }
 
-.icon-about__text {
+.item-about__text {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.7;
   letter-spacing: 0.2px;
-  white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: 225px;
+  max-width: 225px;
 }
 
 /* Clients Section */
@@ -773,7 +727,7 @@ h6 {
   text-align: center;
   color: #fff;
   padding: 0 22px;
-  transition: all 0.3s ease 0s;
+  transition: background-color 0.3s ease;
 }
 
 .subscribe__button:hover {
@@ -809,13 +763,13 @@ h6 {
   padding: 50px 15px;
 }
 
-.item-contacts_active {
+.item-contacts--active {
   background-color: #252b42;
   color: #fff;
   /* padding: 80px 15px; */
 }
 
-.item-contacts_active .item-contacts__button {
+.item-contacts--active .item-contacts__button {
   border: 1px solid #fff;
   color: #fff;
 }
@@ -866,7 +820,7 @@ h6 {
   line-height: 142%;
   text-align: center;
   border-radius: 5px;
-  transition: all 0.3s ease 0s;
+  transition: background-color 0.3s ease;
 }
 
 /* Contact Us */
@@ -881,7 +835,7 @@ h6 {
   justify-content: space-between;
 }
 
-.contact-title {
+.contactus__title {
   font-weight: 700;
   letter-spacing: 0.1px;
   font-size: 24px;
@@ -890,16 +844,16 @@ h6 {
   color: #252b42;
 }
 
-.contact-title:not(:last-child) {
+.contactus__title:not(:last-child) {
   margin: 0 0 10px 0;
 }
 
-.contact-text {
+.contactus__text {
   color: #737373;
   line-height: 142%;
 }
 
-.contact__button {
+.contactus__button {
   padding: 5px 40px;
   min-height: 58px;
   display: flex;
@@ -912,10 +866,10 @@ h6 {
   font-weight: 600;
   line-height: 142%;
   border-radius: 5px;
-  transition: all 0.3s ease 0s;
+  transition: background-color 0.3s ease;
 }
 
-.contact__button:hover {
+.contactus__button:hover {
   background-color: #dd6130;
   color: #fff;
 }
