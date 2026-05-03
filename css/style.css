@@ -747,7 +747,6 @@ img {
 .contacts__items {
   margin: 0;
   display: flex;
-  align-items: center;
 }
 
 .contacts__item {
@@ -784,7 +783,7 @@ img {
   margin: 0 0 15px 0;
 }
 
-.item-contacts__emails {
+.item-contacts__list {
   display: flex;
   flex-direction: column;
   justify-content: center;
